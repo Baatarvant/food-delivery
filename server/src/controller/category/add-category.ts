@@ -4,8 +4,6 @@ import { prisma } from "../../lib/prisma";
 export const addCategory = async (req: Request, res: Response) => {
   const { name } = req.body;
 
-  console.log(name);
-
   try {
     const category = await prisma.foodCategory.create({
       data: {
