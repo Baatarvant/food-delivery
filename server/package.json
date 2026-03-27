@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
     "build": "prisma generate",
-    "vercel-build": "prisma generate",
     "start": "node dist/index.js"
   },
   "keywords": [],
