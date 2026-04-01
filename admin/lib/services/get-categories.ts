@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
+
 export interface GetCategoriesResponse {
   categories: Category[];
 }
@@ -20,7 +22,15 @@ export interface Food {
 }
 
 export const getCategories = async () => {
-  const data = await fetch("http://localhost:3001/categories");
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
+
+  const data = await fetch("http://localhost:3001/categories", {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
   const { categories }: GetCategoriesResponse = await data.json();
 
   return categories;

@@ -2,15 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { signIn } from "@/lib/services/auth/sign-in";
+import { signUp } from "@/lib/services/auth/sign-up";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
   return (
     <div className="w-[1440px] mx-auto border border-red-500 h-screen flex justify-between">
       <div>
-        <SignIn />
+        <SignUp />
       </div>
       <div className="w-[900px] border border-red-400 overflow-hidden rounded-4xl">
         <img
@@ -24,22 +23,17 @@ export default function Home() {
   );
 }
 
-const SignIn = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
 
   const onSubmit = async () => {
     const credentials = {
       email,
       password,
     };
-    try {
-      await signIn(credentials);
-      router.push("/dashboard/foods");
-    } catch (error) {
-      console.log(error);
-    }
+
+    await signUp(credentials);
   };
 
   return (
@@ -56,7 +50,7 @@ const SignIn = () => {
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
-      <Button onClick={onSubmit}>Sign in</Button>
+      <Button onClick={onSubmit}>Sign Up</Button>
     </div>
   );
 };

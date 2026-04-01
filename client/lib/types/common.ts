@@ -14,3 +14,10 @@ export type Category = {
   updatedAt: string;
   foods: Food[];
 };
+
+export type CartItem = {
+  foodId: number;
+  name: string;
+  price: string;
+  quantity: number;
+};
