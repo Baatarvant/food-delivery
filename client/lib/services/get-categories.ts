@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { Category } from "../types/common";
 
 type GetCategoriesResponse = {
@@ -6,17 +5,15 @@ type GetCategoriesResponse = {
 };
 
 export const getCategories = async (): Promise<GetCategoriesResponse> => {
-  const cookieStore = await cookies();
-
-  const token = cookieStore.get("token")?.value;
-
-  const response = await fetch("http://localhost:3001/categories", {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+  const response = await fetch(
+    "https://pine-food-delivery.vercel.app/categories",
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
     },
-    cache: "no-store",
-  });
+  );
   const data = await response.json();
 
   return data;

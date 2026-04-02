@@ -15,7 +15,6 @@ export const authMiddleware = (
   next: NextFunction,
 ) => {
   const authorization = req.headers.authorization;
-  console.log("authorization: ", authorization);
 
   if (!authorization) return res.send("no token");
 

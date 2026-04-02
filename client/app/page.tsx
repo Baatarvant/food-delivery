@@ -1,19 +1,22 @@
 import { getCategories } from "@/lib/services/get-categories";
-import { CategorySection } from "./components/category-section";
-import { CartSidebar } from "./components/cart-sidebar";
+import { FoodCategory } from "./_components/FoodCategory";
+import { CardSheet } from "./_components/CartSheet";
 
 export default async function Home() {
   const { categories } = await getCategories();
 
+  const filteredCategories = categories.filter(
+    (category) => category.foods.length > 0,
+  );
+
   return (
     <main className="max-w-7xl mx-auto px-4 py-8">
-      <header className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Food Delivery</h1>
-      </header>
-      {categories.map((category) => (
-        <CategorySection key={category.id} category={category} />
-      ))}
-      <CartSidebar />
+      <div>
+        {filteredCategories.map((category) => {
+          return <FoodCategory key={category.id} category={category} />;
+        })}
+      </div>
+      <CardSheet />
     </main>
   );
 }
