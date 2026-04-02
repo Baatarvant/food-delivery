@@ -11,15 +11,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useContext, useState } from "react";
-import { CardContext } from "../_contexts/CartContext";
+import { useState } from "react";
+import { useCardContext } from "../_contexts/CartContext";
 
 type FoodCardProps = {
   food: Food;
 };
 
 export const FoodCard = (props: FoodCardProps) => {
-  const { card, addCard } = useContext(CardContext);
+  const { card, addCard } = useCardContext();
 
   console.log("card: ", card);
 

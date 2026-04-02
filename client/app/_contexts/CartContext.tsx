@@ -1,7 +1,7 @@
 "use client";
 
 import { Food } from "@/lib/types/common";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 type CardContextType = {
   card: FoodCard[];
@@ -9,6 +9,7 @@ type CardContextType = {
 };
 
 export const CardContext = createContext({} as CardContextType);
+export const useCardContext = () => useContext(CardContext);
 
 type CardContextProviderProps = {
   children: ReactNode;
