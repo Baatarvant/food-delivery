@@ -10,13 +10,16 @@ export async function POST(request: Request) {
 
   const cookieStore = await cookies();
 
-  const response = await fetch("http://localhost:3001/users/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    "https://food-delivery-1-xc22.onrender.com/users/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
     },
-    body: JSON.stringify(credentials),
-  });
+  );
 
   const data = (await response.json()) as SignInResponse;
 

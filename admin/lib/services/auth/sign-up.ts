@@ -5,7 +5,7 @@ type Credentials = {
 
 export const signUp = async (credentials: Credentials) => {
   try {
-    await fetch("http://localhost:3001/users", {
+    await fetch("https://food-delivery-1-xc22.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

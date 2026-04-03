@@ -6,7 +6,7 @@ type GetCategoriesResponse = {
 
 export const getCategories = async (): Promise<GetCategoriesResponse> => {
   const response = await fetch(
-    "https://food-delivery-kohl-alpha.vercel.app/categories",
+    "https://food-delivery-1-xc22.onrender.com/categories",
     {
       headers: {
         "Content-Type": "application/json",

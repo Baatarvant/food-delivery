@@ -35,7 +35,7 @@ export function AddCategory() {
       name: categoryName,
     };
     try {
-      await fetch("http://localhost:3001/categories", {
+      await fetch("https://food-delivery-1-xc22.onrender.com/categories", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

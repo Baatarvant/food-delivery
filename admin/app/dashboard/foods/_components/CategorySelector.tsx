@@ -1,5 +1,3 @@
-import { ChangeEventHandler } from "react";
-import { Category } from "./Categories";
 import {
   Select,
   SelectContent,
@@ -9,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Category } from "@/lib/services/get-categories";
 
 type CategorySelectorProps = {
   categories: Category[];
